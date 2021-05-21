@@ -1,18 +1,8 @@
-// const puppeteer = require('puppeteer');
-
-// (async () => {
-//   const browser = await puppeteer.launch();
-//   const page = await browser.newPage();
-//   await page.goto('https://example.com');
-//   await page.screenshot({ path: 'example.png' });
-
-//   await browser.close();
-// })();
 const readlineSync = require('readline-sync');
 const puppeteer = require('puppeteer');
 
 async function robot () {
-    const browser = await puppeteer.launch({headless: true});
+    const browser = await puppeteer.launch({headless: false});
     const page = await browser.newPage();
     const moedas = ['Dollar','Euro','Real','Reimimbi']
     const e1 = readlineSync.keyInSelect(moedas,'Escolha a moeda para converter');
@@ -26,7 +16,7 @@ async function robot () {
 
     console.log(`O valor atual do câmbio : 1 ${moedas[e1]} = ${resul} ${moedas[e2]} `);
 
-    await browser.close();
+    // await browser.close();
 }
   
 robot();
